@@ -86,6 +86,11 @@ window.generatePrompts = function() {
 
     document.getElementById('promptsOutput').innerHTML = outputHTML;
     console.log("Output HTML generated and inserted");
+
+    
+    // גלילה למטה כדי להציג את הפרומפטים שנוצרו
+    const promptsOutput = document.getElementById('promptsOutput');
+    promptsOutput.scrollIntoView({ behavior: 'smooth' });
 };
 
 function copyPrompt(button, type) {
