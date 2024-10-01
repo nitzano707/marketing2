@@ -41,27 +41,27 @@ window.generatePrompts = function() {
     console.log("Generated prompts:", { socialMediaPrompt, emailPrompt, websitePrompt });
 
     const outputHTML = `
-         <div class="prompt-container">
-        <div class="prompt-header">
-            <div class="prompt-title">פרומפט לרשת חברתית (${getSocialMediaTypeName(socialMediaType)}):</div>
-            <button class="copy-button" onclick="copyPrompt(this, 'socialMedia')">העתק</button>
+        <div class="prompt-container">
+            <div class="prompt-header">
+                <div class="prompt-title">פרומפט לרשת חברתית (${getSocialMediaTypeName(socialMediaType)}):</div>
+                <button class="copy-button" onclick="copyPrompt(this, 'socialMedia')">העתק</button>
+            </div>
+            <p class="prompt-content">${socialMediaPrompt}</p>
         </div>
-        <p class="prompt-content">${socialMediaPrompt}</p>
-    </div>
-    <div class="prompt-container">
-        <div class="prompt-header">
-            <div class="prompt-title">פרומפט לקמפיין דוא"ל:</div>
-            <button class="copy-button" onclick="copyPrompt(this, 'email')">העתק</button>
+        <div class="prompt-container">
+            <div class="prompt-header">
+                <div class="prompt-title">פרומפט לקמפיין דוא"ל:</div>
+                <button class="copy-button" onclick="copyPrompt(this, 'email')">העתק</button>
+            </div>
+            <p class="prompt-content">${emailPrompt}</p>
         </div>
-        <p class="prompt-content">${emailPrompt}</p>
-    </div>
-    <div class="prompt-container">
-        <div class="prompt-header">
-            <div class="prompt-title">פרומפט לתוכן אתר:</div>
-            <button class="copy-button" onclick="copyPrompt(this, 'website')">העתק</button>
+        <div class="prompt-container">
+            <div class="prompt-header">
+                <div class="prompt-title">פרומפט לתוכן אתר:</div>
+                <button class="copy-button" onclick="copyPrompt(this, 'website')">העתק</button>
+            </div>
+            <p class="prompt-content">${websitePrompt}</p>
         </div>
-        <p class="prompt-content">${websitePrompt}</p>
-    </div>
         <div class="copy-instruction">
             <h3>איך להשתמש בפרומפטים?</h3>
             <p>לחץ על כפתור "העתק" ליד כל פרומפט והדבק אותו באחד מהאתרים הבאים:</p>
