@@ -47,6 +47,22 @@ h1 {
     margin: 0 0 10px 0;
 }
 
+.description {
+    background-color: #f5f5f5; /* רקע אפור בהיר */
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.description ol {
+    padding-right: 20px; /* מרווח מימין לרשימה */
+    margin: 0;
+}
+
+.description li {
+    text-align: right; /* יישור טקסט לימין */
+}
+
 #read-more {
     color: var(--primary-color);
     text-decoration: none;
