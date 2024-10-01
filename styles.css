@@ -135,3 +135,52 @@ button:hover {
         max-width: 100%;
     }
 }
+
+.description {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.description p {
+    margin: 0 0 10px 0;
+}
+
+#read-more {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#read-more:hover {
+    text-decoration: underline;
+}
+
+#full-description {
+    text-align: right;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+#full-description.expanded {
+    max-height: 1000px; /* משתנה בהתאם לאורך הטקסט המלא */
+    transition: max-height 0.5s ease-in;
+}
+
+@media (max-width: 768px) {
+    .description {
+        font-size: 1rem;
+        padding: 15px;
+        margin-bottom: 30px;
+    }
+}
