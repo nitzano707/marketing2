@@ -33,7 +33,7 @@ h1 {
 .description {
     max-width: 800px;
     margin: 0 auto 40px;
-    text-align: center;
+    text-align: right;
     font-size: 1.1rem;
     line-height: 1.6;
     color: var(--text-color);
