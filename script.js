@@ -1,6 +1,16 @@
 // פונקציה שתרוץ כשהדף נטען במלואו
 function init() {
     console.log("Script loaded and initialized");
+    // מוסיף מאזיני אירועים לכל השדות
+    document.querySelectorAll('input[type="text"], textarea').forEach(field => {
+        field.addEventListener('input', function() {
+            if (this.value) {
+                this.classList.add('has-content');
+            } else {
+                this.classList.remove('has-content');
+            }
+        });
+    });
 }
 
 // הוספת event listener לטעינת הדף
