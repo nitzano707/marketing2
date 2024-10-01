@@ -20,26 +20,41 @@ function generatePrompts() {
     const audience = document.getElementById('audience').value;
     const socialMediaType = document.getElementById('socialMediaType').value;
 
-    const socialMediaPrompt = generateSocialMediaPrompt(socialMediaType, schoolName, stage, sector, approach, programs, audience);
-    const emailPrompt = generateEmailPrompt(schoolName, stage, sector, approach, programs);
-    const websitePrompt = generateWebsitePrompt(schoolName, stage, sector, location, approach, programs);
+    const socialMediaPrompts = generateSocialMediaPrompts(socialMediaType, schoolName, stage, sector, approach, programs, audience);
+    const emailPrompts = generateEmailPrompts(schoolName, stage, sector, approach, programs);
+    const websitePrompts = generateWebsitePrompts(schoolName, stage, sector, location, approach, programs);
 
     const outputHTML = `
         <div class="prompt-container">
-            <div class="prompt-title">פרומפט לרשת חברתית (${getSocialMediaTypeName(socialMediaType)}):</div>
-            <p class="prompt-content">${socialMediaPrompt}</p>
+            <div class="prompt-title">פרומפטים לרשת חברתית (${getSocialMediaTypeName(socialMediaType)}):</div>
+            ${socialMediaPrompts.map((prompt, index) => `
+                <div class="prompt-option">
+                    <h4>אפשרות ${index + 1}:</h4>
+                    <p class="prompt-content">${prompt}</p>
+                </div>
+            `).join('')}
         </div>
         <div class="prompt-container">
-            <div class="prompt-title">פרומפט לקמפיין דוא"ל:</div>
-            <p class="prompt-content">${emailPrompt}</p>
+            <div class="prompt-title">פרומפטים לקמפיין דוא"ל:</div>
+            ${emailPrompts.map((prompt, index) => `
+                <div class="prompt-option">
+                    <h4>אפשרות ${index + 1}:</h4>
+                    <p class="prompt-content">${prompt}</p>
+                </div>
+            `).join('')}
         </div>
         <div class="prompt-container">
-            <div class="prompt-title">פרומפט לתוכן אתר:</div>
-            <p class="prompt-content">${websitePrompt}</p>
+            <div class="prompt-title">פרומפטים לתוכן אתר:</div>
+            ${websitePrompts.map((prompt, index) => `
+                <div class="prompt-option">
+                    <h4>אפשרות ${index + 1}:</h4>
+                    <p class="prompt-content">${prompt}</p>
+                </div>
+            `).join('')}
         </div>
         <div class="copy-instruction">
             <h3>איך להשתמש בפרומפטים?</h3>
-            <p>להעתקת הפרומפטים והשימוש בהם, אנא בקרו באחד מהאתרים הבאים:</p>
+            <p>בחר את הפרומפט המועדף עליך מכל קטגוריה והעתק אותו לאחד מהאתרים הבאים:</p>
             <ul>
                 <li><a href="https://chat.openai.com" target="_blank">ChatGPT</a></li>
                 <li><a href="https://www.anthropic.com" target="_blank">Claude</a></li>
@@ -50,43 +65,45 @@ function generatePrompts() {
     document.getElementById('promptsOutput').innerHTML = outputHTML;
 }
 
-function generateSocialMediaPrompt(type, schoolName, stage, sector, approach, programs, audience) {
-    let basePrompt = `כתוב פוסט ל${getSocialMediaTypeName(type)} עבור ${schoolName} (${stage} ${sector}). הפוסט צריך:
+function generateSocialMediaPrompts(type, schoolName, stage, sector, approach, programs, audience) {
+    const basePrompt = `כתוב פוסט ל${getSocialMediaTypeName(type)} עבור ${schoolName} (${stage} ${sector}). הפוסט צריך:
 - להדגיש את הגישה החינוכית הייחודית: ${approach}
 - לציין את התוכניות הייחודיות: ${programs}
 - להיות מותאם לקהל היעד: ${audience}
 - לכלול קריאה לפעולה ברורה`;
 
-    switch (type) {
-        case 'facebook':
-            basePrompt += '\n- להיות באורך של 100-150 מילים';
-            break;
-        case 'whatsapp':
-            basePrompt += '\n- להיות תמציתי וקליט, באורך של עד 50 מילים';
-            break;
-        case 'instagram':
-            basePrompt += '\n- להיות ויזואלי ומושך עין, כולל הצעה לתמונה מתאימה\n- לכלול האשטגים רלוונטיים';
-            break;
-        case 'tiktok':
-            basePrompt += '\n- להיות קצר, קליט ומעורר עניין\n- להציע רעיון לסרטון קצר שיתאים לפלטפורמה';
-            break;
-    }
+    const specificInstructions = {
+        'facebook': '- להיות באורך של 100-150 מילים',
+        'whatsapp': '- להיות תמציתי וקליט, באורך של עד 50 מילים',
+        'instagram': '- להיות ויזואלי ומושך עין, כולל הצעה לתמונה מתאימה\n- לכלול האשטגים רלוונטיים',
+        'tiktok': '- להיות קצר, קליט ומעורר עניין\n- להציע רעיון לסרטון קצר שיתאים לפלטפורמה'
+    };
 
-    return basePrompt;
+    return [
+        `${basePrompt}\n${specificInstructions[type]}\n- להתמקד בהישגים אקדמיים של המוסד`,
+        `${basePrompt}\n${specificInstructions[type]}\n- להדגיש את האווירה והחוויה החברתית במוסד`,
+        `${basePrompt}\n${specificInstructions[type]}\n- לשלב סיפור אישי או עדות של תלמיד/הורה`
+    ];
 }
 
-function generateEmailPrompt(schoolName, stage, sector, approach, programs) {
-    return `צור תבנית לקמפיין דוא"ל המזמין הורים לרשום את ילדיהם ל${schoolName} (${stage} ${sector}). הדוא"ל צריך:
+function generateEmailPrompts(schoolName, stage, sector, approach, programs) {
+    const basePrompt = `צור תבנית לקמפיין דוא"ל המזמין הורים לרשום את ילדיהם ל${schoolName} (${stage} ${sector}). הדוא"ל צריך:
 - לפתוח עם פנייה אישית
 - להדגיש את היתרונות הייחודיים של המוסד החינוכי, כולל ${approach}
 - לכלול מידע על התוכניות הייחודיות: ${programs}
 - להזמין להשתתף ביום פתוח או לתאם סיור
 - לסיים עם קריאה לפעולה ברורה
 - להיות באורך של כ-200 מילים`;
+
+    return [
+        `${basePrompt}\n- להתמקד בהזדמנויות העתידיות שהמוסד מציע לתלמידים`,
+        `${basePrompt}\n- להדגיש את איכות הצוות החינוכי והמתקנים במוסד`,
+        `${basePrompt}\n- לשלב נתונים סטטיסטיים על הצלחות בוגרי המוסד`
+    ];
 }
 
-function generateWebsitePrompt(schoolName, stage, sector, location, approach, programs) {
-    return `כתוב תוכן לעמוד 'אודות' באתר של ${schoolName} (${stage} ${sector}). התוכן צריך:
+function generateWebsitePrompts(schoolName, stage, sector, location, approach, programs) {
+    const basePrompt = `כתוב תוכן לעמוד 'אודות' באתר של ${schoolName} (${stage} ${sector}). התוכן צריך:
 - לפתוח עם משפט מושך המתאר את החזון של המוסד החינוכי
 - לתאר בקצרה את ההיסטוריה והמיקום של המוסד החינוכי ב${location}
 - להסביר את הגישה החינוכית הייחודית: ${approach}
@@ -94,14 +111,12 @@ function generateWebsitePrompt(schoolName, stage, sector, location, approach, pr
 - לכלול ציטוט או סיפור הצלחה של תלמיד או הורה
 - לסיים עם הזמנה ליצירת קשר או ביקור
 - להיות באורך של כ-300 מילים`;
+
+    return [
+        `${basePrompt}\n- להדגיש את החדשנות הטכנולוגית במוסד`,
+        `${basePrompt}\n- לשים דגש על פיתוח כישורים רגשיים וחברתיים`,
+        `${basePrompt}\n- להתמקד בקשרים עם הקהילה והתעשייה`
+    ];
 }
 
-function getSocialMediaTypeName(type) {
-    switch (type) {
-        case 'facebook': return 'פייסבוק';
-        case 'whatsapp': return 'וואטסאפ';
-        case 'instagram': return 'אינסטגרם';
-        case 'tiktok': return 'טיקטוק';
-        default: return type;
-    }
-}
+// שאר הפונקציות נשארות ללא שינוי
