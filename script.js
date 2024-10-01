@@ -42,11 +42,12 @@ window.generatePrompts = function() {
 
     const outputHTML = `
         <div class="prompt-container">
-            <button class="copy-button" onclick="copyPrompt(this, 'socialMedia')" title="העתק פרומפט" text="העתק פרומפט" >
+            <button class="copy-button" onclick="copyPrompt(this, 'socialMedia')" title="העתק פרומפט">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
                 </svg>
+                 <span>העתק פרומפט</span> <!-- הטקסט שיופיע לצד האייקון -->
             </button>
             <div class="prompt-title">פרומפט לרשת חברתית (${getSocialMediaTypeName(socialMediaType)}):</div>
             <p class="prompt-content">${socialMediaPrompt}</p>
@@ -57,6 +58,7 @@ window.generatePrompts = function() {
                     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
                 </svg>
+                 <span>העתק פרומפט</span> <!-- הטקסט שיופיע לצד האייקון -->
             </button>
             <div class="prompt-title">פרומפט לקמפיין דוא"ל:</div>
             <p class="prompt-content">${emailPrompt}</p>
@@ -67,6 +69,7 @@ window.generatePrompts = function() {
                     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
                 </svg>
+                 <span>העתק פרומפט</span> <!-- הטקסט שיופיע לצד האייקון -->
             </button>
             <div class="prompt-title">פרומפט לתוכן אתר:</div>
             <p class="prompt-content">${websitePrompt}</p>
