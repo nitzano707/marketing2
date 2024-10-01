@@ -146,6 +146,7 @@ function generateSocialMediaPrompt(type, schoolName, stage, sector, approach, pr
 
 function generateEmailPrompt(schoolName, stage, sector, approach, programs) {
     return `צור תבנית לקמפיין דוא"ל המזמין הורים לרשום את ילדיהם ל${schoolName} (${stage} ${sector}). הדוא"ל צריך:
+- להיות מותאם לקהל היעד: ${audience}
 - לפתוח עם פנייה אישית
 - להדגיש את היתרונות הייחודיים של המוסד החינוכי, כולל ${approach}
 - לכלול מידע על התוכניות הייחודיות: ${programs}
@@ -156,6 +157,7 @@ function generateEmailPrompt(schoolName, stage, sector, approach, programs) {
 
 function generateWebsitePrompt(schoolName, stage, sector, location, approach, programs) {
     return `כתוב תוכן לעמוד 'אודות' באתר של ${schoolName} (${stage} ${sector}). התוכן צריך:
+- להיות מותאם לקהל היעד: ${audience}
 - לפתוח עם משפט מושך המתאר את החזון של המוסד החינוכי
 - לתאר בקצרה את ההיסטוריה והמיקום של המוסד החינוכי ב${location}
 - להסביר את הגישה החינוכית הייחודית: ${approach}
