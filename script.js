@@ -6,20 +6,28 @@ document.addEventListener('DOMContentLoaded', function() {
     if (readMoreLink && fullDescription && shortDescription) {
         readMoreLink.addEventListener('click', function(e) {
             e.preventDefault();
-            if (fullDescription.style.display === 'none' || fullDescription.style.display === '') {
-                fullDescription.style.display = 'block';
-                shortDescription.style.display = 'none';
-                readMoreLink.textContent = 'פחות...';
-            } else {
-                fullDescription.style.display = 'none';
-                shortDescription.style.display = 'block';
-                readMoreLink.textContent = 'עוד...';
-            }
+            toggleDescription();
         });
     } else {
-        console.error('One or more elements not found');
+        console.error('One or more elements not found for description toggle');
     }
 });
+
+function toggleDescription() {
+    const fullDescription = document.getElementById('full-description');
+    const shortDescription = document.getElementById('short-description');
+    const readMoreLink = document.getElementById('read-more');
+    
+    if (fullDescription.style.display === 'none' || fullDescription.style.display === '') {
+        fullDescription.style.display = 'block';
+        shortDescription.style.display = 'none';
+        readMoreLink.textContent = 'פחות...';
+    } else {
+        fullDescription.style.display = 'none';
+        shortDescription.style.display = 'block';
+        readMoreLink.textContent = 'עוד...';
+    }
+}
 
 function generatePrompts() {
     const stage = document.getElementById('educationStage').value;
@@ -79,4 +87,40 @@ function generateSocialMediaPrompt(type, schoolName, stage, sector, approach, pr
             basePrompt += '\n- להיות ויזואלי ומושך עין, כולל הצעה לתמונה מתאימה\n- לכלול האשטגים רלוונטיים';
             break;
         case 'tiktok':
-            basePrompt += '\n- להיות קצר, קליט ומ
+            basePrompt += '\n- להיות קצר, קליט ומעורר עניין\n- להציע רעיון לסרטון קצר שיתאים לפלטפורמה';
+            break;
+    }
+
+    return basePrompt;
+}
+
+function generateEmailPrompt(schoolName, stage, sector, approach, programs) {
+    return `צור תבנית לקמפיין דוא"ל המזמין הורים לרשום את ילדיהם ל${schoolName} (${stage} ${sector}). הדוא"ל צריך:
+- לפתוח עם פנייה אישית
+- להדגיש את היתרונות הייחודיים של המוסד החינוכי, כולל ${approach}
+- לכלול מידע על התוכניות הייחודיות: ${programs}
+- להזמין להשתתף ביום פתוח או לתאם סיור
+- לסיים עם קריאה לפעולה ברורה
+- להיות באורך של כ-200 מילים`;
+}
+
+function generateWebsitePrompt(schoolName, stage, sector, location, approach, programs) {
+    return `כתוב תוכן לעמוד 'אודות' באתר של ${schoolName} (${stage} ${sector}). התוכן צריך:
+- לפתוח עם משפט מושך המתאר את החזון של המוסד החינוכי
+- לתאר בקצרה את ההיסטוריה והמיקום של המוסד החינוכי ב${location}
+- להסביר את הגישה החינוכית הייחודית: ${approach}
+- לפרט את התוכניות הייחודיות: ${programs}
+- לכלול ציטוט או סיפור הצלחה של תלמיד או הורה
+- לסיים עם הזמנה ליצירת קשר או ביקור
+- להיות באורך של כ-300 מילים`;
+}
+
+function getSocialMediaTypeName(type) {
+    switch (type) {
+        case 'facebook': return 'פייסבוק';
+        case 'whatsapp': return 'וואטסאפ';
+        case 'instagram': return 'אינסטגרם';
+        case 'tiktok': return 'טיקטוק';
+        default: return type;
+    }
+}
