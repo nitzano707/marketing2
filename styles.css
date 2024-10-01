@@ -111,6 +111,7 @@ button:hover {
     top: 10px;
     right: 10px;
     background: none;
+    background-color: #ffffff; /* או כל צבע אחר שתבחר */
     border: none;
     cursor: pointer;
     padding: 5px;
@@ -120,6 +121,7 @@ button:hover {
 
 .copy-button:hover {
     opacity: 1;
+    background-color: #f0f0f0; /* שינוי צבע רקע בזמן ריחוף */
 }
 
 .copy-button svg {
