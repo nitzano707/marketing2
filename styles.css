@@ -143,6 +143,17 @@ button:hover {
     text-decoration: underline;
 }
 
+
+::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+    color: transparent;
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 20px 10px;
