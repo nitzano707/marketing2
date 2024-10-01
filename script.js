@@ -44,18 +44,21 @@ window.generatePrompts = function() {
         <div class="prompt-container">
             <div class="prompt-title">פרומפט לרשת חברתית (${getSocialMediaTypeName(socialMediaType)}):</div>
             <p class="prompt-content">${socialMediaPrompt}</p>
+            <button class="copy-button" onclick="copyPrompt(this, 'socialMedia')">העתק</button>
         </div>
         <div class="prompt-container">
             <div class="prompt-title">פרומפט לקמפיין דוא"ל:</div>
             <p class="prompt-content">${emailPrompt}</p>
+            <button class="copy-button" onclick="copyPrompt(this, 'email')">העתק</button>
         </div>
         <div class="prompt-container">
             <div class="prompt-title">פרומפט לתוכן אתר:</div>
             <p class="prompt-content">${websitePrompt}</p>
+            <button class="copy-button" onclick="copyPrompt(this, 'website')">העתק</button>
         </div>
         <div class="copy-instruction">
             <h3>איך להשתמש בפרומפטים?</h3>
-            <p>להעתקת הפרומפטים והשימוש בהם, אנא בקרו באחד מהאתרים הבאים:</p>
+            <p>לחץ על כפתור "העתק" ליד כל פרומפט והדבק אותו באחד מהאתרים הבאים:</p>
             <ul>
                 <li><a href="https://chat.openai.com" target="_blank">ChatGPT</a></li>
                 <li><a href="https://www.anthropic.com" target="_blank">Claude</a></li>
@@ -66,6 +69,28 @@ window.generatePrompts = function() {
     document.getElementById('promptsOutput').innerHTML = outputHTML;
     console.log("Output HTML generated and inserted");
 };
+
+function copyPrompt(button, type) {
+    const promptContainer = button.closest('.prompt-container');
+    const promptText = promptContainer.querySelector('.prompt-content').textContent;
+    
+    navigator.clipboard.writeText(promptText).then(() => {
+        // יצירת אלמנט ההודעה
+        const message = document.createElement('div');
+        message.textContent = 'הפרומפט הועתק. עבור לכלי בינה מלאכותית יוצרת כדי לייצר את התוצר הסופי';
+        message.className = 'copy-message';
+        
+        // הוספת ההודעה לדף
+        promptContainer.appendChild(message);
+        
+        // הסרת ההודעה אחרי 3 שניות
+        setTimeout(() => {
+            message.remove();
+        }, 3000);
+    }).catch(err => {
+        console.error('Failed to copy text: ', err);
+    });
+}
 
 function generateSocialMediaPrompt(type, schoolName, stage, sector, approach, programs, audience) {
     let basePrompt = `כתוב פוסט ל${getSocialMediaTypeName(type)} עבור ${schoolName} (${stage} ${sector}). הפוסט צריך:
