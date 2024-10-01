@@ -1,7 +1,6 @@
 // פונקציה שתרוץ כשהדף נטען במלואו
 function init() {
     console.log("Script loaded and initialized");
-    document.getElementById('generateButton').addEventListener('click', generatePrompts);
 }
 
 // הוספת event listener לטעינת הדף
@@ -11,7 +10,8 @@ if (document.readyState === 'loading') {
     init();
 }
 
-function generatePrompts() {
+// הגדרת generatePrompts כפונקציה גלובלית כדי שתהיה נגישה מה-onclick
+window.generatePrompts = function() {
     console.log("generatePrompts function called");
     const stage = document.getElementById('educationStage').value;
     const sector = document.getElementById('sector').value;
@@ -55,7 +55,7 @@ function generatePrompts() {
 
     document.getElementById('promptsOutput').innerHTML = outputHTML;
     console.log("Output HTML generated and inserted");
-}
+};
 
 function generateSocialMediaPrompt(type, schoolName, stage, sector, approach, programs, audience) {
     let basePrompt = `כתוב פוסט ל${getSocialMediaTypeName(type)} עבור ${schoolName} (${stage} ${sector}). הפוסט צריך:
