@@ -41,6 +41,15 @@ window.generatePrompts = function() {
     console.log("Generated prompts:", { socialMediaPrompt, emailPrompt, websitePrompt });
 
     const outputHTML = `
+
+         <div class="copy-instruction">
+            <h3>איך להשתמש בפרומפטים?</h3>
+            <p>לחץ על כפתור ההעתקה ליד כל פרומפט והדבק אותו באחד מהאתרים הבאים:</p>
+            <ul>
+                <li><a href="https://chat.openai.com" target="_blank">ChatGPT</a></li>
+                <li><a href="https://www.anthropic.com" target="_blank">Claude</a></li>
+            </ul>
+        </div>
         <div class="prompt-container">
             <button class="copy-button" onclick="copyPrompt(this, 'socialMedia')" title="העתק פרומפט">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -74,14 +83,7 @@ window.generatePrompts = function() {
             <div class="prompt-title">פרומפט לתוכן אתר:</div>
             <p class="prompt-content">${websitePrompt}</p>
         </div>
-        <div class="copy-instruction">
-            <h3>איך להשתמש בפרומפטים?</h3>
-            <p>לחץ על כפתור ההעתקה ליד כל פרומפט והדבק אותו באחד מהאתרים הבאים:</p>
-            <ul>
-                <li><a href="https://chat.openai.com" target="_blank">ChatGPT</a></li>
-                <li><a href="https://www.anthropic.com" target="_blank">Claude</a></li>
-            </ul>
-        </div>
+       
     `;
 
     document.getElementById('promptsOutput').innerHTML = outputHTML;
