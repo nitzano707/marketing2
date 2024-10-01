@@ -26,7 +26,7 @@ function generatePrompts() {
             <p>${websitePrompt}</p>
         </div>
         <div class="copy-instruction">
-            <p>להעתקת הפרומפטים והשימוש בהם, אנא בקרו באחד מהאתרים הבאים:</p>
+            <p>העתיקו את הפרומפט הרצוי והדביקו באחד האתרים הבאים</p>
             <ul>
                 <li><a href="https://chat.openai.com" target="_blank">ChatGPT</a></li>
                 <li><a href="https://www.anthropic.com" target="_blank">Claude</a></li>
