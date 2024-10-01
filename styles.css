@@ -31,49 +31,19 @@ h1 {
 }
 
 .description {
-    max-width: 800px;
-    margin: 0 auto 40px;
-    text-align: right;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--secondary-color);
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.description p {
-    margin: 0 0 10px 0;
-     text-align: right;
-}
-
-.description {
-    background-color: #f5f5f5; /* רקע אפור בהיר */
+    background-color: #f5f5f5;
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 20px;
 }
 
 .description ol {
-    padding-right: 20px; /* מרווח מימין לרשימה */
+    padding-right: 20px;
     margin: 0;
-    text-align: right;
 }
 
 .description li {
-    text-align: right; /* יישור טקסט לימין */
-}
-
-#read-more {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-#read-more:hover {
-    text-decoration: underline;
+    text-align: right;
 }
 
 .form-section {
@@ -195,18 +165,4 @@ button:hover {
     button {
         max-width: 100%;
     }
-
-.prompt-option {
-    background-color: #f9f9f9;
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
-    padding: 15px;
-    margin-bottom: 15px;
-}
-
-.prompt-option h4 {
-    margin-top: 0;
-    color: #2980b9;
-}
-    
 }
