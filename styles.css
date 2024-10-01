@@ -68,6 +68,7 @@ select, input, textarea {
     border: 1px solid #e0e0e0;
     border-radius: 5px;
     font-size: 1rem;
+    font-family: 'Heebo', sans-serif; /* או כל גופן אחר שאתה משתמש בו באתר */
     transition: border-color 0.3s ease;
 }
 
