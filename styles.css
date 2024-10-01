@@ -167,6 +167,50 @@ textarea:focus::placeholder {
     color: transparent;
 }
 
+
+.prompt-container {
+    position: relative; /* עבור מיקום ההודעה */
+}
+
+.copy-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.copy-button:hover {
+    background-color: #45a049;
+}
+
+.copy-message {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+    animation: fadeIn 0.3s, fadeOut 0.3s 2.7s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 20px 10px;
