@@ -42,29 +42,38 @@ window.generatePrompts = function() {
 
     const outputHTML = `
         <div class="prompt-container">
-            <div class="prompt-header">
-                <div class="prompt-title">פרומפט לרשת חברתית (${getSocialMediaTypeName(socialMediaType)}):</div>
-                <button class="copy-button" onclick="copyPrompt(this, 'socialMedia')">העתק</button>
-            </div>
+            <button class="copy-button" onclick="copyPrompt(this, 'socialMedia')" title="העתק פרומפט">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+            </button>
+            <div class="prompt-title">פרומפט לרשת חברתית (${getSocialMediaTypeName(socialMediaType)}):</div>
             <p class="prompt-content">${socialMediaPrompt}</p>
         </div>
         <div class="prompt-container">
-            <div class="prompt-header">
-                <div class="prompt-title">פרומפט לקמפיין דוא"ל:</div>
-                <button class="copy-button" onclick="copyPrompt(this, 'email')">העתק</button>
-            </div>
+            <button class="copy-button" onclick="copyPrompt(this, 'email')" title="העתק פרומפט">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+            </button>
+            <div class="prompt-title">פרומפט לקמפיין דוא"ל:</div>
             <p class="prompt-content">${emailPrompt}</p>
         </div>
         <div class="prompt-container">
-            <div class="prompt-header">
-                <div class="prompt-title">פרומפט לתוכן אתר:</div>
-                <button class="copy-button" onclick="copyPrompt(this, 'website')">העתק</button>
-            </div>
+            <button class="copy-button" onclick="copyPrompt(this, 'website')" title="העתק פרומפט">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+            </button>
+            <div class="prompt-title">פרומפט לתוכן אתר:</div>
             <p class="prompt-content">${websitePrompt}</p>
         </div>
         <div class="copy-instruction">
             <h3>איך להשתמש בפרומפטים?</h3>
-            <p>לחץ על כפתור "העתק" ליד כל פרומפט והדבק אותו באחד מהאתרים הבאים:</p>
+            <p>לחץ על כפתור ההעתקה ליד כל פרומפט והדבק אותו באחד מהאתרים הבאים:</p>
             <ul>
                 <li><a href="https://chat.openai.com" target="_blank">ChatGPT</a></li>
                 <li><a href="https://www.anthropic.com" target="_blank">Claude</a></li>
