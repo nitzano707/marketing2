@@ -117,7 +117,7 @@ button:hover {
     display: flex;
     align-items: center;
     width: auto; /* הגדר שהרוחב יותאם אוטומטית לתוכן */
-    max-width: 150px; /* קביעת רוחב מקסימלי אם תרצה */
+    /* max-width: 150px;  קביעת רוחב מקסימלי אם תרצה */
 }
 
 .copy-button:hover {
