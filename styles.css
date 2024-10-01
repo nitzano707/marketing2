@@ -195,4 +195,18 @@ button:hover {
     button {
         max-width: 100%;
     }
+
+.prompt-option {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.prompt-option h4 {
+    margin-top: 0;
+    color: #2980b9;
+}
+    
 }
