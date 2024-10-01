@@ -1,6 +1,7 @@
 // פונקציה שתרוץ כשהדף נטען במלואו
 function init() {
     console.log("Script loaded and initialized");
+    document.getElementById('generateButton').addEventListener('click', generatePrompts);
 }
 
 // הוספת event listener לטעינת הדף
@@ -11,6 +12,7 @@ if (document.readyState === 'loading') {
 }
 
 function generatePrompts() {
+    console.log("generatePrompts function called");
     const stage = document.getElementById('educationStage').value;
     const sector = document.getElementById('sector').value;
     const schoolName = document.getElementById('schoolName').value;
@@ -20,9 +22,13 @@ function generatePrompts() {
     const audience = document.getElementById('audience').value;
     const socialMediaType = document.getElementById('socialMediaType').value;
 
+    console.log("Collected form data:", { stage, sector, schoolName, location, approach, programs, audience, socialMediaType });
+
     const socialMediaPrompt = generateSocialMediaPrompt(socialMediaType, schoolName, stage, sector, approach, programs, audience);
     const emailPrompt = generateEmailPrompt(schoolName, stage, sector, approach, programs);
     const websitePrompt = generateWebsitePrompt(schoolName, stage, sector, location, approach, programs);
+
+    console.log("Generated prompts:", { socialMediaPrompt, emailPrompt, websitePrompt });
 
     const outputHTML = `
         <div class="prompt-container">
@@ -48,6 +54,7 @@ function generatePrompts() {
     `;
 
     document.getElementById('promptsOutput').innerHTML = outputHTML;
+    console.log("Output HTML generated and inserted");
 }
 
 function generateSocialMediaPrompt(type, schoolName, stage, sector, approach, programs, audience) {
