@@ -1,35 +1,6 @@
 // פונקציה שתרוץ כשהדף נטען במלואו
 function init() {
     console.log("Script loaded and initialized");
-    const readMoreLink = document.getElementById('read-more');
-    if (readMoreLink) {
-        readMoreLink.addEventListener('click', toggleDescription);
-    } else {
-        console.error('Read more link not found');
-    }
-}
-
-// פונקציה לטוגל התיאור
-function toggleDescription() {
-    console.log("Toggle description called");
-    const fullDescription = document.getElementById('full-description');
-    const shortDescription = document.getElementById('short-description');
-    const readMoreLink = document.getElementById('read-more');
-    
-    if (!fullDescription || !shortDescription || !readMoreLink) {
-        console.error('One or more elements not found');
-        return;
-    }
-
-    if (fullDescription.style.display === 'none' || fullDescription.style.display === '') {
-        fullDescription.style.display = 'block';
-        shortDescription.style.display = 'none';
-        readMoreLink.textContent = 'פחות...';
-    } else {
-        fullDescription.style.display = 'none';
-        shortDescription.style.display = 'block';
-        readMoreLink.textContent = 'עוד...';
-    }
 }
 
 // הוספת event listener לטעינת הדף
