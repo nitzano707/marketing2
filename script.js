@@ -92,3 +92,18 @@ function getSocialMediaTypeName(type) {
         default: return type;
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const readMoreLink = document.getElementById('read-more');
+    const fullDescription = document.getElementById('full-description');
+    
+    readMoreLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        fullDescription.classList.toggle('expanded');
+        if (fullDescription.classList.contains('expanded')) {
+            readMoreLink.textContent = 'פחות...';
+        } else {
+            readMoreLink.textContent = 'עוד...';
+        }
+    });
+});
