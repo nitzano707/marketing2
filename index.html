@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחולל פרומפטים לשיווק מוסדות חינוך</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>מחולל פרומפטים לשיווק מוסדות חינוך</h1>
+        
+        <div class="form-section">
+            <label for="educationStage">בחר שלב חינוך:</label>
+            <select id="educationStage">
+                <option value="">בחר...</option>
+                <option value="גן">גן</option>
+                <option value="בית ספר יסודי">בית ספר יסודי</option>
+                <option value="בית ספר על יסודי">בית ספר על יסודי</option>
+                <option value="מוסד אקדמי">מוסד אקדמי</option>
+            </select>
+
+            <label for="sector">בחר מגזר:</label>
+            <select id="sector">
+                <option value="">בחר...</option>
+                <option value="ממלכתי">ממלכתי (לא דתי)</option>
+                <option value="ממלכתי דתי">ממלכתי דתי</option>
+                <option value="חרדי">חרדי</option>
+            </select>
+
+            <label for="schoolName">שם המוסד החינוכי:</label>
+            <input type="text" id="schoolName">
+
+            <label for="location">מיקום:</label>
+            <input type="text" id="location">
+
+            <label for="approach">גישה חינוכית:</label>
+            <input type="text" id="approach">
+
+            <label for="programs">תוכניות ייחודיות:</label>
+            <textarea id="programs"></textarea>
+
+            <label for="audience">קהל יעד:</label>
+            <input type="text" id="audience">
+
+            <label for="socialMediaType">בחר סוג פוסט לרשת חברתית:</label>
+            <select id="socialMediaType">
+                <option value="facebook">פוסט לפייסבוק</option>
+                <option value="whatsapp">פוסט לווצאפ</option>
+                <option value="instagram">פוסט לאינסטגרם</option>
+                <option value="tiktok">פוסט לתיקטוק</option>
+            </select>
+
+            <button onclick="generatePrompts()">צור פרומפטים</button>
+        </div>
+
+        <div id="promptsOutput"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
