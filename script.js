@@ -144,7 +144,7 @@ function generateSocialMediaPrompt(type, schoolName, stage, sector, approach, pr
     return basePrompt;
 }
 
-function generateEmailPrompt(schoolName, stage, sector, approach, programs) {
+function generateEmailPrompt(schoolName, stage, sector, approach, programs, audience) {
     return `צור תבנית לקמפיין דוא"ל המזמין הורים לרשום את ילדיהם ל${schoolName} (${stage} ${sector}). הדוא"ל צריך:
 - להיות מותאם לקהל היעד: ${audience}
 - לפתוח עם פנייה אישית
@@ -155,7 +155,7 @@ function generateEmailPrompt(schoolName, stage, sector, approach, programs) {
 - להיות באורך של כ-200 מילים`;
 }
 
-function generateWebsitePrompt(schoolName, stage, sector, location, approach, programs) {
+function generateWebsitePrompt(schoolName, stage, sector, location, approach, programs, audience) {
     return `כתוב תוכן לעמוד 'אודות' באתר של ${schoolName} (${stage} ${sector}). התוכן צריך:
 - להיות מותאם לקהל היעד: ${audience}
 - לפתוח עם משפט מושך המתאר את החזון של המוסד החינוכי
